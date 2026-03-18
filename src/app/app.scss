@@ -1,0 +1,20 @@
+/*@use "style/global" as *;
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  margin-left: $sidebar-width;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+router-outlet {
+  flex: 1;
+}
+
+footer {
+  margin-left: 0;
+}*/

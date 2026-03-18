@@ -1,0 +1,19 @@
+<div class="overlay">
+    <div class="rounded bg-light p-3 w-50 login-form">
+        <div class="d-flex">
+            <h2>Faça seu login!</h2>
+            <button type="button" (click)="close.emit()" class="ms-auto btn btn-danger close-form"><i class="bi bi-x"></i></button>
+        </div>
+        <form action="" class="p-3">
+            <div class="my-2">
+                <label for="User" class="form-text">User</label>
+                <input type="text" id="User" class="form-control" placeholder="User">
+            </div>
+            <div class="my-2">
+                <label for="Password" class="form-text">Password</label>
+                <input type="password" id="Password" class="form-control" placeholder="Password">
+            </div>
+            <button type="button" (click)="login()" class="btn btn-success">Login</button>
+        </form>
+    </div>
+</div>
