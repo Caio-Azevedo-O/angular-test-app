@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import { AuthService } from '../../signal-service';
+import { LoginButton } from '../login-button/login-button';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink],
+  imports: [
+    RouterLink,
+    MatIconModule,
+    LoginButton
+  ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
-export class Navbar {}
+export class Navbar {
+  isLoggedIn = false;
+
+  @Output() loginClick = new EventEmitter<void>();
+
+  constructor(public auth: AuthService) {}
+}

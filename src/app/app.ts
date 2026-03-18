@@ -7,6 +7,9 @@ import { Navbar } from './shared-components/navbar/navbar';
 import { LoginButton } from './shared-components/login-button/login-button';
 import { Login } from './shared-components/login/login';
 import { CommonModule } from '@angular/common';
+import { Products } from './module/products/products';
+import { CreateProduct } from './module/create-product/create-product';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +21,10 @@ import { CommonModule } from '@angular/common';
     Footer,
     Navbar,
     LoginButton,
-    Login
+    Login,
+    Products,
+    CreateProduct,
+    FormsModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

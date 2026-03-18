@@ -1,3 +1,7 @@
-<div class="position-absolute top-0 end-0 m-3">
-    <button *ngIf="!isLoggedIn" (click)="loginClick.emit()" type="button" class="btn btn-primary">Login</button>
+<div class="position-absolute">
+    @if (!auth.isLoggedIn()) {
+        <button (click)="loginClick.emit()" type="button" class="btn btn-primary">Login</button>
+    } @else {
+        <button (click)="auth.logoff()" type="button" class="btn btn-danger">Logout</button>
+    }
 </div>

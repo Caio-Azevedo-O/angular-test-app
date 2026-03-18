@@ -1,11 +1,10 @@
 
 <div style="display: flex; min-height: 100vh;">
   <div>
-    <app-login-button (loginClick)="showLogin = true"></app-login-button>
     <app-login *ngIf="showLogin" (close)="showLogin = false"></app-login>
   </div>
   <div style="width: 95px;">
-    <app-navbar />
+    <app-navbar (loginClick)="showLogin = true" />
   </div>
   <div style="flex: 1; display: flex; flex-direction: column;">
     <div style="flex: 1; padding: 16px;">

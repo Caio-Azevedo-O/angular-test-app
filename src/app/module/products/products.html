@@ -1,1 +1,20 @@
-<p>products works!</p>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 my-3 bg-dark border-light rounded">
+    <ng-container matColumnDef="number" >
+        <th mat-header-cell *matHeaderCellDef class="text-light">N.</th>
+        <td mat-cell *matCellDef="let element; let i = index" class="text-light">{{i + 1}}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="text-light">Nome do produto</th>
+        <td mat-cell *matCellDef="let element" class="text-light">{{element.name}}</td>
+    </ng-container>
+    <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef class="text-light">Valor do produto</th>
+        <td mat-cell *matCellDef="let element" class="text-light">{{element.price}}</td>
+    </ng-container>
+    <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef class="text-light">Código do produto</th>
+        <td mat-cell *matCellDef="let element" class="text-light">{{element.code}}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="text-light"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="text-light"></tr>
+</table>

@@ -1,1 +1,28 @@
 @use "style/global" as *;
+
+a{
+    text-decoration: none;
+}
+.card{
+    border-top: 3px solid #0d6efd;
+    transition: 0.15s;
+    user-select: none;
+}
+.card:hover{
+    animation: hover-card 0.15s ease-in-out;
+    transform: translateY(-5%);
+    outline: 2px solid #0d6efd;
+    background-color: #e2e9f5;
+}
+.card a{
+    cursor: pointer;
+}
+@keyframes hover-card{
+    from{
+        background-color: #fff;
+        transform: translateY(0%);
+    }
+    to{
+        transform: translateY(-5%);
+    }
+}

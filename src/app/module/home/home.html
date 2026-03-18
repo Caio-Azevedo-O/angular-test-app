@@ -1,8 +1,37 @@
 <main>
-    <div class="card p-3 w-25 flex flex-column" style="height: 18rem">
-        <h3 class="card-title">Card aleatório</h3>
-        <div class="mt-auto">
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-        </div>
+    <div class="d-flex row mt-5">
+        @if(auth.isLoggedIn()){
+            <div class="card p-3 w-25 flex flex-column mx-3 col-4" style="height: 18rem">
+                <h3 class="card-title">Produtos</h3>
+                <p class="card-text">Veja aqui todos os produtos que você cadastrou.</p>
+                <div class="mt-auto">
+                    <a class="text-primary d-flex justify-content-between" routerLink="/products">
+                        Visite os produtos
+                        <i class="bi bi-arrow-right mx-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="card p-3 w-25 flex flex-column mx-3 col-4" style="height: 18rem">
+                <h3 class="card-title">Criar produto</h3>
+                <p class="card-text">Aqui você pode criar um novo produto.</p>
+                <div class="mt-auto">
+                    <a class="text-primary d-flex justify-content-between" routerLink="/create-product">
+                        Criar produto
+                        <i class="bi bi-arrow-right mx-2"></i>
+                    </a>
+                </div>
+            </div>
+        }@else{
+            <div class="card p-3 w-25 flex flex-column mx-3 col-4" style="height: 18rem">
+                <h3 class="card-title">Home</h3>
+                <p class="card-text">O local onde você está</p>
+                <div class="mt-auto">
+                    <a class="text-primary d-flex justify-content-between" routerLink="/home">
+                        Visite a home
+                        <i class="bi bi-arrow-right mx-2"></i>
+                    </a>
+                </div>
+            </div>
+        }
     </div>
 </main>
