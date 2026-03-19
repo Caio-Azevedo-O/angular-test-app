@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { AuthService } from '../../signal-service';
+import { AuthService } from '../../shared/auth-service';
 
 @Component({
   selector: 'app-login-button',
@@ -15,6 +15,6 @@ export class LoginButton {
   isLoggedIn = false;
 
   constructor(public auth: AuthService) {
-    
+    this.isLoggedIn = this.auth.isAuthenticated();
   }
 }

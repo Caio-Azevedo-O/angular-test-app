@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../signal-service';
+import { AuthService } from '../../shared/auth-service';
+import { UserContext } from '../../UserContext';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class Login {
 
   }
 
-  user: string = "";
+  username: string = "";
   password: string = "";
 
   isLoggedIn = false;
@@ -34,16 +35,15 @@ export class Login {
   }
 
   login() {
-    console.log("Login attempt with user:", this.user, "and password:", this.password);
-
-    if(this.user == "caioAzevedo" && this.password == "123456"){
+    console.log("Login attempt with user:", this.username, "and password:", this.password);
+    const user = new UserContext(this.username, this.password, '', false);
+    this.auth.authenticateUser(user);
+    if (this.auth.isAuthenticated()) {
       this.close.emit();
       this.loginSuccess.emit();
-      this.auth.successfulLogin();
       this.router.navigate(["/home"]);
-    }else{
+    } else {
       this.failedToLogin = true;
     }
-
   }
 }

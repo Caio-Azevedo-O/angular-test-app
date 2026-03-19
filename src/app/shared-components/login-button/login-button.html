@@ -1,5 +1,5 @@
 <div class="position-absolute">
-    @if (!auth.isLoggedIn()) {
+    @if (!auth.isAuthenticated()) {
         <button (click)="loginClick.emit()" type="button" class="btn btn-primary">Login</button>
     } @else {
         <button (click)="auth.logoff()" type="button" class="btn btn-danger">Logout</button>

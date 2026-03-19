@@ -1,17 +1,18 @@
 <div class="d-flex justify-contents-center align-items-center">
-    <form action="" class="rounded bg-dark p-3">
+    <form action="" (submit)="false" class="rounded bg-dark p-5 w-50 justify-content-center d-flex flex-column mx-auto mt-5">
         <h3 class="text-light">Insira as informações do produto</h3>
         <div class="my-2">
             <label class="text-light" for="ProductName">Nome do produto</label>
-            <input type="text" id="ProductName" class="form-control">
+            <input #productNameInput (keydown.enter)="focusNext(productPriceInput)" [(ngModel)]="productName" [ngModelOptions]="{standalone: true}" type="text" id="ProductName" class="form-control">
         </div>
         <div class="my-2">
             <label class="text-light" for="ProductName">Valor do produto</label>
-            <input type="number" id="ProductValue" class="form-control">
+            <input #productPriceInput (keydown.enter)="focusNext(productCodeInput)" [(ngModel)]="productPrice" [ngModelOptions]="{standalone: true}" type="number" id="ProductValue" class="form-control">
         </div>
         <div class="my-2">
             <label class="text-light" for="ProductName">Código do produto</label>
-            <input type="text" id="ProductCode" class="form-control">
+            <input #productCodeInput [(ngModel)]="productCode" [ngModelOptions]="{standalone: true}" type="text" id="ProductCode" class="form-control">
         </div>
+        <button type="button" class="btn btn-success" (click)="createProduct()">Adicionar Produto</button>
     </form>
 </div>

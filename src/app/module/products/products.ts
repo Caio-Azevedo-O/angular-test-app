@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {MatTable, MatTableModule} from '@angular/material/table';
+import { ViewProducts } from '../../shared/view-products';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -8,17 +10,36 @@ import {MatTable, MatTableModule} from '@angular/material/table';
   styleUrl: './products.scss',
 })
 export class Products {
-  dataSource = [
-    {name: 'Produto 1', price: 10.99, code: '303776'},
-    {name: 'Produto 2', price: 19.99, code: '777556'},
-    {name: 'Produto 3', price: 5.99, code: '442467'},
-  ];
+  dataSource: any[] = [];
 
-  displayedColumns = ['number', 'name', 'value', 'code'];
+  subscription!: Subscription;
+
+  constructor(public products: ViewProducts) {
+    this.activateSubscription();
+  }
+
+  activateSubscription(): void {
+    this.subscription = this.products.getProducts().subscribe((products) => {
+      this.dataSource = products;
+    });
+
+  }
+  deactivateSubscription(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+  
+  
+  displayedColumns = ['number', 'name', 'value', 'code', 'actions'];
+  
+  ngOnDestroy(): void {
+    this.deactivateSubscription();
+  }
 }
 export class Product{
   name: string;
-  price: number
+  price: number;
   code: string;
 
   constructor(name: string, price: number, code: string) {

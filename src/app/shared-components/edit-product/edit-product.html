@@ -1,0 +1,19 @@
+<div class="overlay">
+    <div class="rounded bg-dark p-3 w-50 login-form">
+        <div class="d-flex">
+            <h2 class="text-light">Edite o produto.</h2>
+            <button type="button" (click)="close.emit()" class="ms-auto btn btn-danger close-form"><i class="bi bi-x"></i></button>
+        </div>
+        <form action="" class="p-3" (ngSubmit)="false">
+            <div class="my-2">
+                <label for="User" class="form-text text-light">Nome do produto</label>
+                <input [(ngModel)]="productName" [ngModelOptions]="{standalone: true}" type="text" id="User" class="form-control" placeholder="User" (keydown.enter)="focusNext(passwordInput)" #userInput>
+            </div>
+            <div class="my-2">
+                <label for="Password" class="form-text text-light">Valor do produto</label>
+                <input [(ngModel)]="productValue" [ngModelOptions]="{standalone: true}" type="number" id="Password" class="form-control" placeholder="Password" #passwordInput>
+            </div>
+            <button type="button" (click)="products.editProduct()" class="btn btn-success" id="message">Editar Produto</button>
+        </form>
+    </div>
+</div>

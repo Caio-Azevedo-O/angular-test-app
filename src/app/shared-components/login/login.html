@@ -10,7 +10,7 @@
         <form action="" class="p-3" (ngSubmit)="false">
             <div class="my-2">
                 <label for="User" class="form-text text-light">User</label>
-                <input [(ngModel)]="user" [ngModelOptions]="{standalone: true}" type="text" id="User" class="form-control" placeholder="User" (keydown.enter)="focusNext(passwordInput)" #userInput>
+                <input [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="text" id="User" class="form-control" placeholder="User" (keydown.enter)="focusNext(passwordInput)" #userInput>
             </div>
             <div class="my-2">
                 <label for="Password" class="form-text text-light">Password</label>

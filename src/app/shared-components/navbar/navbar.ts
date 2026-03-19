@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
-import { AuthService } from '../../signal-service';
+import { AuthService } from '../../shared/auth-service';
 import { LoginButton } from '../login-button/login-button';
 
 @Component({
@@ -19,5 +19,7 @@ export class Navbar {
 
   @Output() loginClick = new EventEmitter<void>();
 
-  constructor(public auth: AuthService) {}
+  constructor(public auth: AuthService) {
+    this.isLoggedIn = this.auth.isAuthenticated();
+  }
 }

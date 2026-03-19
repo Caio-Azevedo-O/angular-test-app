@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Home } from './module/home/home';
 import { Contact } from './module/contact/contact';
@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { Products } from './module/products/products';
 import { CreateProduct } from './module/create-product/create-product';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './shared/auth-service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -24,12 +26,22 @@ import { FormsModule } from '@angular/forms';
     Login,
     Products,
     CreateProduct,
-    FormsModule
+    FormsModule,
+    HttpClient
   ],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: [
+    './app.scss'
+  ]
 })
-export class App {
+export class App implements OnInit{
+
+  showLogin!: boolean;
+  constructor(private auth: AuthService) {
+  }
+  
+  ngOnInit(): void {
+    this.showLogin = false;    
+  }
   protected readonly title = signal('test-app');
-  showLogin = false;
 }

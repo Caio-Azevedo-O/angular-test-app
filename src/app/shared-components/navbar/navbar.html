@@ -6,7 +6,7 @@
         <a class="nav-link text-light rounded-3 bg-light my-2" routerLink="/contact">
             <i class="bi bi-chat-left-dots-fill" style="color: #547792"></i>
         </a>
-        @if(auth.isLoggedIn()){
+        @if(auth.isAuthenticated()){
             <a class="nav-link text-light rounded-3 bg-light my-2" routerLink="/create-product">
                 <i class="bi bi-file-plus-fill" style="color: #547792"></i>
             </a>
